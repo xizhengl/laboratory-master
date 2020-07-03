@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <meta charset="UTF-8">
+    <title>SpringBoot模版渲染</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+        <p th:text="'用户ID：' + ${uid}"></p>
+        <p th:text="'用户名称：' + ${name}"></p>
+
+        <!-- Welcome to BeiJing! -->
+        <p th:text="${message}"></p>
+        <div>
+            <p th:text="'用户编号：' + ${member.uid}"></p>
+            <p th:text="'用户姓名：' + ${member.name}"></p>
+            <p th:text="'用户年龄：' + ${member.age}"></p>
+            <p th:text="'用户工资：' + ${member.salary}"></p>
+            <p th:text="'出生日期：' + ${member.birthday}"></p>
+            <p th:text="'出生日期：' + ${#dates.format(member.birthday,'yyyy-MM-dd')}"></p>
+        </div>
+
+        <hr/>
+
+        <div th:object="${member}">
+            <p th:text="'用户编号：' + *{uid}"></p>
+            <p th:text="'用户姓名：' + *{name}"></p>
+            <p th:text="'用户年龄：' + *{age}"></p>
+            <p th:text="'用户工资：' + *{salary}"></p>
+            <p th:text="'出生日期：' + *{birthday}"></p>
+            <p th:text="'出生日期：' + *{#dates.format(birthday,'yyyy-MM-dd')}"></p>
+        </div>
+
+        <hr>
+
+
+        <p th:text="${#dates.format(mydate,'yyyy-MM-dd')}"></p>
+        <p th:text="${#dates.format(mydate,'yyyy-MM-dd HH:mm:ss.SSS')}"></p>
+        <hr/>
+        <p th:text="${#strings.replace('www.baidu.cn','.','$')}"></p>
+        <p th:text="${#strings.toUpperCase('www.baidu.cn')}"></p>
+        <p th:text="${#strings.trim('www.baidu.cn')}"></p>
+        <hr/>
+        <p th:text="${#sets.contains(names,'boot-0')}"></p>
+        <p th:text="${names}"></p>
+        <p th:text="${#sets.contains(names,'boot-9')}"></p>
+        <p th:text="${#sets.size(names)}"></p>
+        <hr/>
+        <p th:text="${#sets.contains(ids,0)}"></p>
+        <p th:text="${ids[1]}"></p>
+        <p th:text="${names[1]}"></p>
+
+        <br>
+        <p th:text="${#httpServletRequest.getRemoteAddr()}"></p>
+        <p th:text="${#httpServletRequest.getPathInfo()}"></p>
+        <p th:text="${#httpServletRequest.getAttribute('requestMessage')}"></p>
+        <p th:text="${#httpSession.getId()}"></p>
+        <p th:text="${#httpServletRequest.getServletContext().getRealPath('/')}"></p>
+        <hr/>
+        <p th:text="'requestMessage = ' + ${requestMessage}"></p>
+        <p th:text="'sessionMessage = ' + ${session.sessionMessage}"></p>
+        <p th:text="'applicationMessage = ' + ${application.applicationMessage}"></p>
+
+
+        <br/>
+
+        <span th:if="${member.age lt 18}">
+        未成年人！
+        </span>
+        <span th:if="${member.name eq '啊三'}">
+        欢迎小三来访问！
+        </span>
+
+        <span th:unless="${member.age gt 18}">
+        你还不满18岁，不能够看电影！
+        </span>
+
+        <span th:switch="${member.uid}">
+            <p th:case="100">uid为101的员工来了</p>
+            <p th:case="99">uid为102的员工来了</p>
+            <p th:case="*">没有匹配成功的数据！</p>
+</span>
+
+</body>
+</html>

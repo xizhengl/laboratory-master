@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>中药新药研究虚拟综合性实验</title>
+		<meta itemprop="name" content="中药新药研究虚拟综合性实验">
+		<meta itemprop="description" content="中药新药研究虚拟综合性实验">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="edge">
+		<link rel="stylesheet" href="static/css/common.css">
+		<script src="static/js/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css" />
+
+	</head>
+
+	<body>
+
+		<!--
+        	作者：lixizheng
+        	时间：2020-07-02
+        	描述：登录模态框 v1.0
+        -->
+		<!--<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					</div>
+					<div class="modal-body">
+						<h4 class="modal-title" align="center">欢迎登录</h4>
+						<br/>
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="id" class="col-sm-offset-2 col-sm-2 control-label">账号</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control" id="id" placeholder="请输您的入账号">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-sm-offset-2 col-sm-2 control-label">密码</label>
+								<div class="col-sm-5">
+									<input type="password" class="form-control" id="password" placeholder="请输入您的密码">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-5">
+									<button id="submitBtn" type="submit" class="btn btn-default btn-block btn-primary">登录</button>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+					</div>
+				</div>
+			</div>
+		</div>-->
+
+		<!--
+         	作者：lixizheng
+         	时间：2020-07-02
+         	描述：注册窗口 v1.0
+         -->
+		<div id="register" class="modal fade"  tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button class="close" data-dismiss="modal">
+                        <span>×</span>
+                    </button>
+					</div>
+					<div class="modal-title">
+						<h3 class="text-center">欢迎注册~</h3>
+					</div>
+					<div class="modal-body">
+						<form class="form-group">
+							<div class="form-group">
+								<label for="">用户名</label>
+								<input class="form-control" name="rightUserName" type="text" placeholder="6-15位字母或数字" required="">
+							</div>
+							<div class="form-group">
+								<label for="">密码</label>
+								<input class="form-control" name="rightUserPassword" type="password" placeholder="至少6位字母或数字" required="">
+							</div>
+							<div class="form-group">
+								<label for="">再次输入密码</label>
+								<input class="form-control" name="userPasswordNext" type="password" placeholder="至少6位字母或数字" required="">
+							</div>
+							<div class="form-group">
+								<label for="">邮箱</label>
+								<input class="form-control" name="userMail" type="email" placeholder="例如:123@123.com" required="">
+							</div>
+							<div class="form-group">
+								<label for="">手机号</label>
+								<input class="form-control" name="userPhone" type="text" placeholder="例如:187799xxxxx" required="">
+							</div>
+							<div class="text-right">
+								<button class="btn btn-primary" id="right">提交</button>
+								<button class="btn btn-danger" data-dismiss="modal">取消</button>
+							</div>
+							<a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--
+        	作者：lixizheng
+        	时间：2020-07-02
+        	描述：登录窗口 v1.1
+        -->
+		<div id="login" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button class="close" data-dismiss="modal">
+		                <span>×</span>
+		            </button>
+					</div>
+					<div class="modal-title">
+						<h3 class="text-center">欢迎登录~</h3>
+					</div>
+					<div class="modal-body">
+						<form class="form-group">
+							<div class="form-group">
+								<label for="">用户名</label>
+								<input class="form-control" name="loginUserName" type="text" placeholder="">
+							</div>
+							<div class="form-group">
+								<label for="">密码</label>
+								<input class="form-control" name="loginUserPassword" type="password" placeholder="">
+							</div>
+							<div class="text-right">
+								<button class="btn btn-primary" type="button" id="login">登录</button>
+								<button class="btn btn-danger" data-dismiss="modal">取消</button>
+							</div>
+							<a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="img_div1">
+			<div id="cg">
+				<div>
+					<a class="xm1_a jrsy" href="CastingWeb/index.html#unityContainer"> <img class="xm1" src="static/picture/xm1.png"></a>
+				</div>
+				<a href="scoring-table.html" target="_blank">
+					<div id="jfan"></div>
+					<i class="glyphicon glyphicon-off"></i>
+					
+				</a>
+			</div>
+			<div id="jfb">
+				<div class="kh">
+				</div>
+				<div class="">
+					<div style="overflow:hidden">
+						<!--<img class="jftitle" src="static/picture/jfbtitle.png">
+          	       	    <img id="gb" src="static/picture/gb.png">-->
+					</div>
+					<div class="jfgd">
+						<!--<img src="static/picture/jfb.png">-->
+					</div>
+				</div>
+			</div>
+			<div class="bt">
+				<a href="introduce.html" target="_blank"><img class="bt1" src="static/picture/bt1.png"></a>
+				<a href="video.html" target="_blank"><img class="bt4" src="static/picture/bt101.png"></a>
+				<a href="introduce-viewer-pdf-property.html" target="_blank"><img class="bt3" src="static/picture/btn3.png"></a>
+			</div>
+		</div>
+	</body>
+
+</html>
+
+<script language="JavaScript">
+//	var isLogin = 0;
+//
+//	if(isLogin == 0) {
+//		$('#login').modal('show') //显示模态框
+//
+//		$("#login").click(function() {
+//
+//			console.log()
+//			var loginUserName = $("input[name='loginUserName']").val()
+//			var loginUserPassword = $("input[name='loginUserPassword']").val()
+//
+//			$.ajax({
+//				type: 'post',
+//				async: false,
+//				url: "http://172.16.122.11/login",
+//				data: {
+//					"userName": loginUserName,
+//					"userPassword": loginUserPassword
+//				},
+//				success: function(reslut) {
+//					if(reslut !== "") {
+//						if(reslut.data.login == true) {
+//							console.log("111")
+//							//							window.location.href="/index.html"
+//							isLogin == 1;
+//						}
+//					}
+//				}
+//			});
+//		})
+//	}
+//
+//	// 想要获取的cook键值
+//	var cookie_name = "isLogin";
+//	// 调用
+//	var cookie_value = getCookie(cookie_name);
+//
+//	function getCookie(cookie_name) {
+//		var allcookies = document.cookie;
+//		//索引长度，开始索引的位置
+//		var cookie_pos = allcookies.indexOf(cookie_name);
+//
+//		// 如果找到了索引，就代表cookie存在,否则不存在
+//		if(cookie_pos !== -1) {
+//			// 把cookie_pos放在值的开始，只要给值加1即可
+//			//计算取cookie值得开始索引，加的1为“=”
+//			cookie_pos = cookie_pos + cookie_name.length + 1;
+//			//计算取cookie值得结束索引
+//			var cookie_end = allcookies.indexOf(";", cookie_pos);
+//
+//			if(cookie_end === -1) {
+//				cookie_end = allcookies.length;
+//
+//			}
+//			//得到想要的cookie的值
+//			var value = unescape(allcookies.substring(cookie_pos, cookie_end));
+//		}
+//		return value;
+//	}
+//
+//	console.log(cookie_value);
+</script>
